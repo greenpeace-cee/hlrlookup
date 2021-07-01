@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Hlrlookup</base>
+  <class>HlrLookupHistory</class>
+  <name>civicrm_hlr_lookup_history</name>
+  <comment>HLR lookup history</comment>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique HlrLookupHistory ID</comment>
+    <html>
+      <type>Number</type>
+    </html>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+
+  <field>
+    <name>msisdn</name>
+    <type>varchar</type>
+    <length>32</length>
+    <required>true</required>
+    <comment>Phone number stripped of all whitespace, letters, and punctuation.</comment>
+    <html>
+      <label>Numeric</label>
+    </html>
+  </field>
+  <index>
+    <name>index_msisdn</name>
+    <fieldName>msisdn</fieldName>
+  </index>
+
+  <field>
+    <name>mobile_provider_id</name>
+    <title>Mobile Provider</title>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Which Mobile Provider does this phone belong to.</comment>
+    <pseudoconstant>
+      <optionGroupName>mobile_provider</optionGroupName>
+    </pseudoconstant>
+    <html>
+      <type>Select</type>
+    </html>
+  </field>
+
+  <field>
+    <name>response_code_id</name>
+    <title>HLR lookup response code</title>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment></comment>
+    <pseudoconstant>
+      <optionGroupName>hlr_lookup_response</optionGroupName>
+    </pseudoconstant>
+    <html>
+      <type>Select</type>
+    </html>
+  </field>
+
+  <field>
+    <name>response_date</name>
+    <title>Response Date</title>
+    <type>datetime</type>
+    <required>true</required>
+    <comment>Date of the Response</comment>
+    <html>
+      <type>Select Date</type>
+    </html>
+  </field>
+
+  <index>
+    <name>index_response_date</name>
+    <fieldName>response_date</fieldName>
+  </index>
+
+  <index>
+    <name>index_msisdn_response_date</name>
+    <fieldName>msisdn</fieldName>
+    <fieldName>response_date</fieldName>
+  </index>
+
+</table>
