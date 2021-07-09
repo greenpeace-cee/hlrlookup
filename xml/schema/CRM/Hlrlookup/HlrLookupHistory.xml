@@ -28,6 +28,7 @@
     <required>true</required>
     <comment>Phone number stripped of all whitespace, letters, and punctuation.</comment>
     <html>
+      <type>Number</type>
       <label>Phone Numeric</label>
     </html>
   </field>
